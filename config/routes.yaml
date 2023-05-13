@@ -1,0 +1,40 @@
+index:
+    path: /
+    controller: App\Controller\ProjectController::list
+
+app_logout:
+    path: /logout
+    methods: GET
+
+project_add:
+    path: /projects/add
+    controller: App\Controller\ProjectController::add
+
+project_edit:
+    path: /project/{id}/update
+    controller: App\Controller\ProjectController::update
+    requirements:
+        id: '\d+'
+        
+project_by_id:
+    path: /project/{key}-{id}
+    controller: App\Controller\ProjectController::showById
+
+    requirements:
+        id: '\d+'
+        key: '\S+'
+
+    methods: GET
+
+task_add_to_project:
+    path: /project/{key}-{id}/create-task
+    controller: App\Controller\TaskController::create
+    
+    requirements:
+        id: '\d+'
+        key: '\S+'
+
+task_list:
+    path: /tasks
+    controller: App\Controller\TaskController::list
+
